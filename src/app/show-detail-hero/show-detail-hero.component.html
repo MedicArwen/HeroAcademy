@@ -1,0 +1,18 @@
+<div class="container home rounded mt-5">
+    <div class="row ">
+        <div class="col">
+            <h5 class="card-title">{{currentHero!.pseudo}}</h5>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-sm m-0 p-0 ">
+            <img width="100%" [src]="currentHero!.image" [alt]="currentHero!.pseudo+'en action !'">
+        </div>
+        <div class="col-sm-8 p-2">
+            
+            <!-- on sait que currentHero existe si on appelle ce template, d'ou le !-->
+            <p class="card-text">{{currentHero!.longText}}</p>  
+        </div>
+    </div>
+  </div>
+

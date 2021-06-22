@@ -1,0 +1,12 @@
+<div class="card" style="height: 100%;">
+    <img class="card-img-top " width="auto" height="250px"  style="object-fit: cover;" [src]="currentHero!.image" [alt]="currentHero!.pseudo+'en action !'">
+    <div class="card-body">
+      <h5 class="card-title">{{currentHero!.pseudo}}</h5>
+      <!-- on sait que currentHero existe si on appelle ce template, d'ou le !-->
+      <p class="card-text">{{currentHero!.shortText}}</p>
+        
+ </div>
+ <div class="container-fluid pb-2 mx-auto">
+  <button type="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/hero-detail',currentHero!.id]">En savoir davantage</button>
+ </div>
+  </div>
