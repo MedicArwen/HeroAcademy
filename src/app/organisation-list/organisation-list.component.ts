@@ -12,7 +12,7 @@ export class OrganisationListComponent implements OnInit {
   listeOrganisation: Organization[];
   constructor(private orgaService : OrganisationService) {
     this.listeOrganisation = this.orgaService.getOrganisations();
-    console.log(this.listeOrganisation);
+
    }
 
   ngOnInit(): void {

@@ -12,6 +12,7 @@ export class ShowOrganisationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
   }
 
 }

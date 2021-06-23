@@ -25,8 +25,11 @@ export class Organization {
     public get members(): Hero[] {
         return this._members;
     }
-
-constructor(pName:string, pHeadQuarterName: string,pLeader: Hero)
+    private _isEvil:boolean;
+    public get isEvil(): boolean {
+        return this._isEvil;
+    }
+constructor(pName:string, pHeadQuarterName: string,pLeader: Hero,pIsEvil:boolean)
     {
         this._id =  uuidv4();
         this._name = pName;
@@ -34,6 +37,7 @@ constructor(pName:string, pHeadQuarterName: string,pLeader: Hero)
         this._leader = pLeader;
         // par défaut, il n'y a personne dans la liste
         this._members = [];
+        this._isEvil = pIsEvil;
     }
     addMember(pNewMember: Hero)
     {

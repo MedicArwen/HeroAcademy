@@ -12,7 +12,7 @@ export class OrganisationGoodGuys extends Organization
 
     constructor(pName:string,pHeadQuarterName:string,pLeader:Hero)
     {
-        super(pName,pHeadQuarterName,pLeader);
+        super(pName,pHeadQuarterName,pLeader,false);
         this._listPreceptes = [];
     }
 
