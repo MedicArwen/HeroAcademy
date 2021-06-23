@@ -12,7 +12,7 @@ export class HeroService {
   getHeroes(): Hero[] {
     return HEROES;
   }
-  getOneHero(i:number): Hero {
-    return HEROES[i];
+  getOneHero(uid:string): Hero {
+    return HEROES.find(hero=>{return hero.id == uid})!;
   }
 }

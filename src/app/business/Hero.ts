@@ -1,8 +1,12 @@
-import { ThrowStmt } from "@angular/compiler";
 
+import { v4 as uuidv4 } from 'uuid';
 export class Hero
 {
-    private _id:number;
+    /**
+     * Attributs privés de la classe
+     * Ne sont pas accessibles en dehors de la classe elle-même
+     */
+    private _id:string;
     private _pseudo:string;
     private _nom:string;
     private _prenom:string;
@@ -10,7 +14,10 @@ export class Hero
     private _image:string;
     private _shortText:string;
     private _longText:string;
-    get id():number
+    /***
+     * Getters et setters
+     */
+    get id():string
     {
         return this._id;
     }
@@ -32,6 +39,12 @@ export class Hero
     }
     get image():string
     {
+        /** 
+         *  le getter permet ici d'ajouter le chemin d'accès des images par défaut
+         * nul besoin de stocker ce chemin d'accès dans une base de données ou autre
+         * peut être une valeur enregistrée dans une constante de configuration
+         * l'absence de setter empêche de modifier les information = lecture seule
+        */
         return 'assets/img/'+this._image;
     }
     get shortText():string
@@ -43,10 +56,12 @@ export class Hero
         return this._longText;
     }
 
-    constructor (pID:number,pPseudo:string,pNom:string,pPrenom:string,pEstSuperVilain:boolean,
+    constructor (pPseudo:string,pNom:string,pPrenom:string,pEstSuperVilain:boolean,
         pImage:string,pShortText:string,pLongText:string)
     {
-        this._id = pID;
+      
+       
+        this._id =  uuidv4()
         this._prenom = pPrenom;
         this._nom = pNom;
         this._pseudo = pPseudo;

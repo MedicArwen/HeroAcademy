@@ -2,7 +2,6 @@ import { Hero } from "./Hero";
 
 export const HEROES: Hero[] = [
     new Hero(
-        1,
         'SuperMan',
         'Clark',
         'Kent',
@@ -12,7 +11,6 @@ export const HEROES: Hero[] = [
         'Super Man, un alien venu d\'ailleurs. Un orphelin de krypton'
     ),
     new Hero(
-        2,
         'Batman',
         'Bruce',
         'Wayne',
@@ -22,7 +20,6 @@ export const HEROES: Hero[] = [
         'Un milliardaire de Gotham qui se déguise en chauve souris. Train limite parfois côté moralité. Il a même tué superman quelque part...'
     ),
     new Hero(
-        3,
         'Captain America',
         'Steeve',
         'Rogers',
@@ -32,7 +29,6 @@ export const HEROES: Hero[] = [
         'Un faible homme qui voulait être assez fort pour rejoindre l\'armée américaine. Il a fini congelé et traine ses guêtres bien après la seconde guerre mondiale.'
     ),
     new Hero(
-        4,
         'Black Widow',
         'Natasha',
         'Romanoff',
@@ -42,7 +38,6 @@ export const HEROES: Hero[] = [
         'Une espionne russe qui en remonterait à James Bond. On aurait pu la croire vilaine, mais elle aide les gentils !'
     ),
     new Hero(
-        5,
         'Wonder Woman',
         'Diana',
         'Prince',
@@ -52,7 +47,6 @@ export const HEROES: Hero[] = [
         'Une amazone sortie de sa cambrousse. Un brin idéaliste avant de perdre son amour de pilote pendant la premiere guerre mondiale.'
     ),
     new Hero(
-        6,
         'Mystique',
         'Raven',
         'Darkholme',
@@ -62,7 +56,6 @@ export const HEROES: Hero[] = [
         'Une métamorphe qui aime bien mettre le souk, bleue des pieds à la tête.' 
     ),  
     new Hero(
-        7,
         'Le Joker',
         'Jack',
         'Napier',

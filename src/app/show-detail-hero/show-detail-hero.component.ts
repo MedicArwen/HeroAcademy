@@ -9,7 +9,7 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./show-detail-hero.component.scss']
 })
 export class ShowDetailHeroComponent implements OnInit {
-  id?:number;
+  id?:string;
   currentHero?:Hero;
   constructor(  private route: ActivatedRoute,private heroService: HeroService) { }
 

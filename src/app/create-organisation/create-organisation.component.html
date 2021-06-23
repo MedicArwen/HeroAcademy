@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="col-sm"><label>Nom de l'organisation</label>
+        <input type="text" [formControl]="organisationName" />
+    </div>
+    <div class="col-sm">
+        <label>Localisation du quartier général</label>
+        <input type="text" [formControl]="organisationHeadQuarterName" />
+    </div>
+    <div class="col-sm">
+        <label>leader</label>
+        <select formControlName="organisationLeader">
+            <option [ngValue]="hero" *ngFor="let hero of listHeroes">{{hero.pseudo}}
+            </option>
+        </select>
+        <input type="radio" formControlName="typeOrga" value="good"> Gentils
+        <input type="radio" formControlName="typeOrga" value="evil"> Méchants
+    </div>
+    <button type="submit" [disabled]="!form.valid">Créer</button>
+</form>

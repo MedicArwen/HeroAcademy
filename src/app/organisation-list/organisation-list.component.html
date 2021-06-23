@@ -1,0 +1,22 @@
+<div class="container home">
+    <div class="row">
+        <div class="col">
+            <h2>Liste des Super-Organisations</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-create-organisation></app-create-organisation>
+        </div>
+    </div>
+    <div class="row" *ngIf="listeOrganisation.length == 0">
+        <div class="col">
+            <h3>Aucune organisation enregistrée</h3>
+        </div>
+    </div>
+    <div class="row m-0 p-2">
+        <div class="col-sm-3 pt-2 pb-2" *ngFor="let monOrga of listeOrganisation">
+            <app-show-organisation [currentOrganisation]="monOrga"></app-show-organisation>
+        </div>
+    </div>
+</div>
