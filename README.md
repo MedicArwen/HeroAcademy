@@ -10,3 +10,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 npm install bootstrap
 npm install uuid
 npm i --save-dev @types/uuid
+
