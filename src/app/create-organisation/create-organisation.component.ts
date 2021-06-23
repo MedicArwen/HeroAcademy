@@ -25,13 +25,14 @@ export class CreateOrganisationComponent implements OnInit {
   constructor(heroService: HeroService) {
      this.listHeroes = heroService.getHeroes(); 
      this.leader = this.listHeroes[0];
+     // création des éléments du formulaire
      this.organisationName = new FormControl('',[Validators.required,
      Validators.minLength(4)]);
     this.organisationHeadQuarterName = new FormControl('',[Validators.required,
       Validators.minLength(4)]);
     this.typeOrga = new FormControl('',[Validators.required]);
      this.organisationLeader = new FormControl(this.listHeroes[0]!);
-     
+     // création du formulaire
      this.form = new FormGroup(
         {
           organisationName:this.organisationName,

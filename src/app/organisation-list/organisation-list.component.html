@@ -1,4 +1,4 @@
-<div class="container home">
+<div class="container home p-0">
     <div class="row">
         <div class="col-sm">
             <h2>Liste des Super-Organisations</h2>
@@ -7,7 +7,6 @@
     <div class="row">
         <div class="col-sm-5">
             <div class="container form">
-                <app-create-organisation></app-create-organisation>
                 <div class="row" *ngIf="listeOrganisation.length == 0">
                     <div class="col-sm">
                         <h3>Aucune organisation enregistrée</h3>
@@ -16,13 +15,20 @@
             </div>
         </div>
     </div>
-    <div class="container header">
-        <div class="row tableau">
-            <div class="col-sm-2">Nom</div>
-            <div class="col-sm-2">Quartier Général</div>
-            <div class="col-sm-2">Leader</div>
+    <div class="container-fluid tableau ">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm"><h4>Nom</h4></div>
+            <div class="col-sm"><h4>Quartier Général</h4></div>
+            <div class="col-sm"><h4>Leader</h4></div>
             <app-show-organisation [currentOrganisation]="monOrga" *ngFor="let monOrga of listeOrganisation">
             </app-show-organisation>
         </div>
     </div>
+    <div class="row">
+        <div class="col  d-flex justify-content-end m-2">
+            <button type="button" routerLink="organisation-create" class="btn btn-secondary"> Ajouter Organisation</button>
+        </div>
+    </div>
+
 </div>

@@ -1,44 +1,51 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div class="row">
-        <div class="col-sm-6">
-            <label>Nom de l'organisation</label>
+    <div class="container form w-50 mt-5 rounded">
+        <div class="row" style="background-color: whitesmoke;">
+            <div class="col ">
+                <nav class="navbar navbar-light bg-light justify-content-between">
+                    <a class="navbar-brand">Ajouter une organisation de Supers-Humain(e)s</a>
+
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit"  routerLink="/organisation-list">Fermer</button>
+    
+                  </nav>
+                
+                </div>
         </div>
-        <div class="col-sm-2">
-            <input type="text" [formControl]="organisationName" />
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Nom de l'organisation</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" [formControl]="organisationName" />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <label>Localisation du quartier général</label>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Localisation du quartier général</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" [formControl]="organisationHeadQuarterName" />
+            </div>
         </div>
-        <div class="col-sm-2">
-            <input type="text" [formControl]="organisationHeadQuarterName" />
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>leader</label>
+            </div>
+            <div class="col-sm-2">
+                <select formControlName="organisationLeader">
+                    <option [ngValue]="hero" *ngFor="let hero of listHeroes">{{hero.pseudo}}
+                    </option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <label>leader</label>
+        <div class="row">
+            <div class="col d-flex justify-content-around">
+                <input type="radio" formControlName="typeOrga" value="good">Un groupe de gentils
+                <input type="radio" formControlName="typeOrga" value="evil">Une bande de Méchants
+            </div>
         </div>
-        <div class="col-sm-2">
-            <select formControlName="organisationLeader">
-                <option [ngValue]="hero" *ngFor="let hero of listHeroes">{{hero.pseudo}}
-                </option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-4">
-            <input type="radio" formControlName="typeOrga" value="good"> Gentils
-        </div>
-        <div class="col-sm-4">
-            <input type="radio" formControlName="typeOrga" value="evil"> Méchants
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-5  d-flex justify-content-end">
-            <button type="submit" [disabled]="!form.valid" 
-            class="btn bg-light btn-block">Créer</button>
+        <div class="row">
+            <button type="submit" [disabled]="!form.valid" class="btn bg-light btn-block">Créer</button>
         </div>
     </div>
 </form>
