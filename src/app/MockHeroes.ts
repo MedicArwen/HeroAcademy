@@ -1,4 +1,4 @@
-import { Hero } from "./Hero";
+import { Hero } from "./BusinessLayer/Hero";
 
 export const HEROES: Hero[] = [
     new Hero(

@@ -2,6 +2,7 @@ import { Hero } from "./Hero";
 import { Organization } from "./Organization";
 import { Precepte } from "./Precepte";
 
+
 export class OrganisationGoodGuys extends Organization
 {
     private _listPreceptes: Precepte[];
@@ -23,7 +24,11 @@ export class OrganisationGoodGuys extends Organization
     }
     removePrecepte(pFiredPrecept : Precepte)
     {
-        const indiceFiredPrecepte = this._listPreceptes.findIndex(precepte => {return precepte.id == pFiredPrecept.id})
+        
+        const indiceFiredPrecepte = this._listPreceptes
+        .findIndex(precepte => {return precepte.id == pFiredPrecept.id})
+
         this._listPreceptes.slice(indiceFiredPrecepte,indiceFiredPrecepte+1);
     }
+  
 }

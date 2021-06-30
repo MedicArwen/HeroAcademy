@@ -6,18 +6,18 @@ export class Hero
      * Attributs privés de la classe
      * Ne sont pas accessibles en dehors de la classe elle-même
      */
-    private _id:string;
-    private _pseudo:string;
-    private _nom:string;
-    private _prenom:string;
-    private _estSuperVilain:boolean;
-    private _image:string;
-    private _shortText:string;
-    private _longText:string;
+    id:string;
+    pseudo:string;
+    nom:string;
+    prenom:string;
+    estSuperVilain:boolean;
+    image:string;
+    shortText:string;
+    longText:string;
     /***
      * Getters et setters
      */
-    get id():string
+    /*get id():string
     {
         return this._id;
     }
@@ -25,6 +25,12 @@ export class Hero
     {
         return this._pseudo;
     }
+    
+    set pseudo(v : string) {
+        
+            this._pseudo = v;
+    }
+    
     get nom():string
     {
         return this._nom;
@@ -38,14 +44,14 @@ export class Hero
         return this._estSuperVilain;
     }
     get image():string
-    {
+    {*/
         /** 
          *  le getter permet ici d'ajouter le chemin d'accès des images par défaut
          * nul besoin de stocker ce chemin d'accès dans une base de données ou autre
          * peut être une valeur enregistrée dans une constante de configuration
          * l'absence de setter empêche de modifier les information = lecture seule
         */
-        return 'assets/img/'+this._image;
+     /*   return 'assets/img/'+this._image;
     }
     get shortText():string
     {
@@ -55,19 +61,19 @@ export class Hero
     {
         return this._longText;
     }
-
+*/
     constructor (pPseudo:string,pNom:string,pPrenom:string,pEstSuperVilain:boolean,
         pImage:string,pShortText:string,pLongText:string)
     {
       
        
-        this._id =  uuidv4()
-        this._prenom = pPrenom;
-        this._nom = pNom;
-        this._pseudo = pPseudo;
-        this._estSuperVilain = pEstSuperVilain;
-        this._image = pImage;
-        this._shortText = pShortText;
-        this._longText = pLongText;
+        this.id =  uuidv4()
+        this.prenom = pPrenom;
+        this.nom = pNom;
+        this.pseudo = pPseudo;
+        this.estSuperVilain = pEstSuperVilain;
+        this.image = pImage;
+        this.shortText = pShortText;
+        this.longText = pLongText;
     }
 }

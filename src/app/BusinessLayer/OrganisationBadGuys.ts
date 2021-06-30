@@ -16,12 +16,12 @@ export class OrganisationBadGuys extends Organization
         this._listCrimes = [];
     }
 
-    addPrecepte(pNewCrime: Crime)
+    addCrime(pNewCrime: Crime)
     {
         console.log('ajout du crime '+pNewCrime.shortText+' chez '+ this.name)
         this._listCrimes.push(pNewCrime);
     }
-    removePrecepte(pFiredCrime : Crime)
+    removeCrime(pFiredCrime : Crime)
     {
         const indicefiredCrime = this._listCrimes.findIndex(crime => {return crime.id == pFiredCrime.id})
         this._listCrimes.slice(indicefiredCrime,indicefiredCrime+1);

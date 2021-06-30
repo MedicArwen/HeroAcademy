@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Hero } from '../business/Hero';
-import { ORGANISATIONS } from '../business/MockOrganisation';
-import { OrganisationBadGuys } from '../business/OrganisationBadGuys';
-import { OrganisationGoodGuys } from '../business/OrganisationGoodGuys';
-import { HeroService } from '../hero.service';
+import { Hero } from '../../BusinessLayer/Hero';
+import { HeroService } from '../../DataLayer/hero.service';
+import { ORGANISATIONS } from '../../MockOrganisation';
+import { OrganisationBadGuys } from '../../BusinessLayer/OrganisationBadGuys';
+import { OrganisationGoodGuys } from '../../BusinessLayer/OrganisationGoodGuys';
+import { OrganisationService } from 'src/app/DataLayer/organisation.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-organisation',
@@ -22,7 +24,8 @@ export class CreateOrganisationComponent implements OnInit {
   leader: Hero;
 
 
-  constructor(heroService: HeroService) {
+  constructor(private heroService: HeroService,private organisationService:OrganisationService,
+    private router: Router,private route: ActivatedRoute) {
      this.listHeroes = heroService.getHeroes(); 
      this.leader = this.listHeroes[0];
      // création des éléments du formulaire
@@ -45,28 +48,31 @@ export class CreateOrganisationComponent implements OnInit {
   }
   onSubmit()
   {
-    console.log('SUBMITED:'+this.form.value['organisationName']);
-    console.log('SUBMITED:'+this.form.value['organisationHeadQuarterName']);
-    console.log('SUBMITED:'+this.form.value['organisationLeader'].pseudo);
-    console.log('SUBMITED:'+this.form.value['typeOrga']);
-   if (this.form.value['typeOrga']=='evil')
-        ORGANISATIONS.push(
-          new OrganisationBadGuys
-          (
-            this.form.value['organisationName'],
-            this.form.value['organisationHeadQuarterName'],
-            this.form.value['organisationLeader']
-          )
-        )
+    console.log('SUBMITTED:'+this.form.value['organisationName']);
+    console.log('SUBMITTED:'+this.form.value['organisationHeadQuarterName']);
+    console.log('SUBMITTED:'+this.form.value['organisationLeader']);
+    console.log('SUBMITTED:'+this.form.value['typeOrga']);
+   if (this.form.value['typeOrga']==='evil')
+  {
+    console.log('creation du supergroupe '+ this.form.value['typeOrga'])
+    this.organisationService.createOrganisation(new OrganisationBadGuys
+    (
+      this.form.value['organisationName'],
+      this.form.value['organisationHeadQuarterName'],
+      this.form.value['organisationLeader']
+    )) }
         else
-        ORGANISATIONS.push(
-          new OrganisationGoodGuys
+        {
+          console.log('creation du supergroupe '+ this.form.value['typeOrga'])
+  
+          this.organisationService.createOrganisation( new OrganisationGoodGuys
           (
             this.form.value['organisationName'],
             this.form.value['organisationHeadQuarterName'],
             this.form.value['organisationLeader']
-          )
-        )
+          ))}
+          this.router.navigate(['/organisation-list']);
+
     
   }
 }

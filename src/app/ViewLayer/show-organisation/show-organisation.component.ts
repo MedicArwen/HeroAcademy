@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Organization } from '../business/Organization';
+import { Organization } from '../../BusinessLayer/Organization';
 
 @Component({
   selector: 'app-show-organisation',

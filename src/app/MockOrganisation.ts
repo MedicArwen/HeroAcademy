@@ -1,6 +1,6 @@
 import { HEROES } from "./MockHeroes";
-import { OrganisationGoodGuys } from "./OrganisationGoodGuys";
-import { Organization } from "./Organization";
+import { OrganisationGoodGuys } from "./BusinessLayer/OrganisationGoodGuys";
+import { Organization } from "./BusinessLayer/Organization";
 
 
 export const ORGANISATIONS: Organization[] = 

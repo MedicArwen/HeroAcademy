@@ -1,0 +1,73 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="container form w-50 mt-5 rounded">
+        <div class="row" style="background-color: whitesmoke;">
+            <div class="col ">
+                <nav class="navbar navbar-light bg-light justify-content-between">
+                    <a class="navbar-brand">Enregistrer un(e) Super-Humain(e)</a>
+
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit"  routerLink="/heroes-list">Fermer</button>
+    
+                  </nav>
+                
+                </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Pseudonyme</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" [formControl]="pseudo" />
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Prénom</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" [formControl]="prenom" />
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Nom</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" [formControl]="nom" />
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>image</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" size="30" [formControl]="image" />
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Courte présentation</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" size="30" [formControl]="shortText" />
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-sm-6">
+                <label>Présentation longue</label>
+            </div>
+            <div class="col-sm-2">
+                <textarea [formControl]="longText" ></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-around">
+                <input type="radio" formControlName="estSuperVilain" value="good">Héros
+                <input type="radio" formControlName="estSuperVilain" value="evil">Vilain
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" [disabled]="!form.valid" class="btn bg-light btn-block">Créer</button>
+        </div>
+    </div>
+</form>

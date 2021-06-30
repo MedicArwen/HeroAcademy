@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Hero } from '../business/Hero';
-import { HeroService } from '../hero.service';
+import { Hero } from '../../BusinessLayer/Hero';
+import { HeroService } from '../../DataLayer/hero.service';
 
 @Component({
   selector: 'app-show-detail-hero',
@@ -15,7 +15,7 @@ export class ShowDetailHeroComponent implements OnInit {
 
   ngOnInit(): void {
       this.id = this.route.snapshot.params['id'];
-      this.currentHero = this.heroService.getOneHero(this.id!);
+      this.currentHero = this.heroService.getHero(this.id!);
   }
 
 }

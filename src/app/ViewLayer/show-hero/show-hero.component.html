@@ -1,5 +1,5 @@
 <div class="card" style="height: 100%;">
-    <img class="card-img-top " width="auto" height="250px"  style="object-fit: cover;" [src]="currentHero!.image" [alt]="currentHero!.pseudo+'en action !'">
+    <img class="card-img-top " width="auto" height="250px"  style="object-fit: cover;" [src]="'/assets/img/'+currentHero!.image" [alt]="currentHero!.pseudo+' en action !'">
     <div class="card-body">
       <h5 class="card-title">{{currentHero!.pseudo}}</h5>
       <!-- on sait que currentHero existe si on appelle ce template, d'ou le !-->
