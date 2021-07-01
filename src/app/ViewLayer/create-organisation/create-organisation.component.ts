@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Hero } from '../../BusinessLayer/Hero';
 import { HeroService } from '../../DataLayer/hero.service';
-import { ORGANISATIONS } from '../../MockOrganisation';
 import { OrganisationBadGuys } from '../../BusinessLayer/OrganisationBadGuys';
 import { OrganisationGoodGuys } from '../../BusinessLayer/OrganisationGoodGuys';
 import { OrganisationService } from 'src/app/DataLayer/organisation.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataAccessService } from 'src/app/DataLayer/data-access.service';
 
 @Component({
   selector: 'app-create-organisation',
@@ -26,7 +26,8 @@ export class CreateOrganisationComponent implements OnInit {
 
   constructor(private heroService: HeroService,private organisationService:OrganisationService,
     private router: Router,private route: ActivatedRoute) {
-     this.listHeroes = heroService.getHeroes(); 
+    
+      this.listHeroes = heroService.getHeroes(); 
      this.leader = this.listHeroes[0];
      // création des éléments du formulaire
      this.organisationName = new FormControl('',[Validators.required,
@@ -45,6 +46,17 @@ export class CreateOrganisationComponent implements OnInit {
     }
   
   ngOnInit(): void {
+    this.heroService.listChangedEvent.subscribe(listeHero=>
+      {
+        this.organisationLeader = new FormControl(this.listHeroes[0]!)
+        this.form = new FormGroup(
+        {
+          organisationName:this.organisationName,
+          organisationHeadQuarterName:this.organisationHeadQuarterName,
+          organisationLeader:this.organisationLeader,
+          typeOrga:this.typeOrga});
+    }
+      )
   }
   onSubmit()
   {

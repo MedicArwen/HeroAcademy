@@ -17,24 +17,18 @@ export class HeroService {
   getHero(uid:string): Hero {
     return this.heroList.find(hero=>{return hero.id == uid})!;
   }
-  createHero(hero:Hero)
+  createHero(pHero:Hero)
   {
-    console.log('creation du héro suivant');
-    console.log(hero)
-    this.heroList.push(hero)
+    console.log('creation du héro: '+pHero.pseudo);
+    console.log(pHero)
+    this.heroList.push(pHero)
     this.listChangedEvent.emit(this.heroList);
   }
   
   setList(pListHero:Hero[])
   {
     console.log('setList!: heros trouvés ='+pListHero.length)
-    this.heroList = [];
-    for (let hero of pListHero)
-    {
-      console.log("ajout de "+hero.pseudo)
-      this.heroList.push(hero);
-    }
-    console.log(this.heroList);
+    this.heroList = pListHero;
     this.listChangedEvent.emit(this.heroList);
   }
 }

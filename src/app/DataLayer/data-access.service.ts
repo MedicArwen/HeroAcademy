@@ -37,12 +37,12 @@ export class DataAccessService {
     )
     .subscribe();
   }
-  saveHeroes()
+  saveHeroes(pHeroList:Hero[])
   {
-      const heroList: Hero[] = this.heroService.getHeroes();
-
+    console.log('data-access::saveheroes:'+pHeroList.length+' héro(s) à sauver');
+    
       this.httpService
-        .put('https://heros-25b11-default-rtdb.firebaseio.com/hero.json',heroList)
+        .put('https://heros-25b11-default-rtdb.firebaseio.com/hero.json',pHeroList)
         .subscribe((res:any) => {
           console.log(res);
         });
@@ -64,16 +64,17 @@ export class DataAccessService {
   }
   fetchOrgas()
   {
+    console.log('fetch ORGAS..')
     this.httpService
     .get<Organization[]>(
       'https://heros-25b11-default-rtdb.firebaseio.com/organisations.json'
     )
     .pipe(tap((orgaList: Organization[]) => {
-      console.log('orgaList chargement:');
+      console.log('orgaList chargement:fetchOrgas');
         // Step 2 - Send to post.service
         if (orgaList!=null)
         {
-          console.log('Liste:'+orgaList.length+' orgas')
+          console.log('fetchOrgas:tap:Liste:'+orgaList.length+' orgas')
           this.orgaService.setList(orgaList);
         }
        
@@ -83,12 +84,12 @@ export class DataAccessService {
     )
     .subscribe();
   }
-  saveOrgas()
+  saveOrgas(orgaListe:Organization[])
   {
-      const orgaList: Organization[] = this.orgaService.getOrganisations();
-
+     // const orgaList: Organization[] = this.orgaService.getOrganisations();
+    console.log('SAVE ORGAS:' +orgaListe.length+' organisations a sauver')
       this.httpService
-        .put('https://heros-25b11-default-rtdb.firebaseio.com/organisations.json',orgaList)
+        .put('https://heros-25b11-default-rtdb.firebaseio.com/organisations.json',orgaListe)
         .subscribe((res:any) => {
           console.log(res);
         });

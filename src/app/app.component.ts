@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataAccessService } from './DataLayer/data-access.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HeroAcademy';
+  constructor(    private dataService:DataAccessService)
+  {
+    this.dataService.fetchHeroes();
+    this.dataService.fetchOrgas();
+  }
  
 }
 

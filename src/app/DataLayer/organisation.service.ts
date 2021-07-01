@@ -1,6 +1,5 @@
-import { ThrowStmt } from '@angular/compiler';
+
 import { EventEmitter, Injectable } from '@angular/core';
-import { Hero } from '../BusinessLayer/Hero';
 import { Organization } from '../BusinessLayer/Organization';
 
 @Injectable({
@@ -10,9 +9,12 @@ export class OrganisationService {
   listOrganisation: Organization[] = [];
   listChangedEvent: EventEmitter<Organization[]> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    console.log('OrganisationService::Constructor');
+    
+   }
   getOrganisations(): Organization[] {
-    console.log(" appel:getOrganisations");
+    console.log(" appel:getOrganisations:"+this.listOrganisation.length+" orgas trouvées");
     return this.listOrganisation;
   }
   getOrga(uid:string): Organization {
